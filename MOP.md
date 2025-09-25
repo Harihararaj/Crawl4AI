@@ -3,8 +3,7 @@
 > [Documentation](/references/documentation.md)
 
 > [!IMPORTANT]
-> ## Tested Environment:
-> `Python 3.13.7`
+> Tested Environment: `Python 3.13.7`
 
 ## Steps:
 1. Create a Python Virtual Environment:
