@@ -2,7 +2,8 @@
 
 > [Documentation](/references/documentation.md)
 
-[!IMPORTANT]Tested Environment:
+> [!IMPORTANT]
+> ## Tested Environment:
 > `Python 3.13.7`
 
 ## Steps:
@@ -13,7 +14,8 @@
 3. Check for the python version using following command:
 ```python3 --version```
 
-[!WARNING]Crawl4AI requires Python 3.9 or higher
+> [!WARNING]
+> Crawl4AI requires Python 3.9 or higher
 
 4. Install the requirements:
 ```pip3 install -r requirements.txt```
