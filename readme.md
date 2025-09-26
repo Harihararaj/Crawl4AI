@@ -1,7 +1,7 @@
 # Method of Procedure:
 
-> [Documentation](/references/documentation.md)
-> [SampleOutput](/references/result.md)
+- [Documentation](/references/documentation.md)
+- [SampleOutput](/references/result.md)
 
 > [!IMPORTANT]
 > Tested Environment: `Python 3.13.7`
