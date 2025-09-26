@@ -9,12 +9,9 @@ from crawl4ai import LLMExtractionStrategy
 
 load_dotenv()
 
-class OpenAIModelFee(BaseModel):
-    model_name: str = Field(..., description="Name of the OpenAI model.")
-    input_fee: str = Field(..., description="Fee for input token for the OpenAI model.")
-    output_fee: str = Field(
-        ..., description="Fee for output token for the OpenAI model."
-    )
+class FAQ(BaseModel):
+    faq_question: str = Field(..., description="Frequently Asked Questions in the webpage")
+    faq_answer: str = Field(..., description="Answers for the above Freaquently Asked Question")
 
 async def extract_structured_data_using_llm(
     provider: str, api_token: str = None, extra_headers: Dict[str, str] = None
@@ -39,15 +36,14 @@ async def extract_structured_data_using_llm(
             llm_config = LLMConfig(provider=provider,api_token=api_token),
             schema=OpenAIModelFee.model_json_schema(),
             extraction_type="schema",
-            instruction="""From the crawled content, extract all mentioned model names along with their fees for input and output tokens. 
-            Do not miss any models in the entire content.""",
+            instruction="""From the crawled content, populate the Frequently Asked Questions and Answers in the list of shared format""",
             extra_args=extra_args,
         ),
     )
 
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
-            url="https://openai.com/api/pricing/", config=crawler_config
+            url="https://www.greatwaysinc.com/faq-details_faq_19", config=crawler_config
         )
         print(result.extracted_content)
 
