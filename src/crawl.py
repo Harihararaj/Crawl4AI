@@ -34,7 +34,7 @@ async def extract_structured_data_using_llm(
         page_timeout=80000,
         extraction_strategy=LLMExtractionStrategy(
             llm_config = LLMConfig(provider=provider,api_token=api_token),
-            schema=OpenAIModelFee.model_json_schema(),
+            schema=FAQ.model_json_schema(),
             extraction_type="schema",
             instruction="""From the crawled content, populate the Frequently Asked Questions and Answers in the list of shared format""",
             extra_args=extra_args,
