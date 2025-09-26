@@ -1,6 +1,7 @@
 # Method of Procedure:
 
 > [Documentation](/references/documentation.md)
+> [SampleOutput](/references/result.md)
 
 > [!IMPORTANT]
 > Tested Environment: `Python 3.13.7`
@@ -18,5 +19,12 @@
 
 4. Install the requirements:
 ```pip3 install -r requirements.txt```
+
+5. Create an .env file and populate the OPEN_API_KEY
+
+6. Run 
+```
+python3 src/crawl.py
+```
 
 
