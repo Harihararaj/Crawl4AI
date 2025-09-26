@@ -20,7 +20,7 @@
 4. Install the requirements:
 ```pip3 install -r requirements.txt```
 
-5. Create an .env file and populate the OPEN_API_KEY
+5. Create an .env file and populate the `OPEN_API_KEY`
 
 6. Run 
 ```
