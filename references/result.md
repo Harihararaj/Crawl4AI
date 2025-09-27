@@ -1,8 +1,7 @@
 ####  [](https://www.greatwaysinc.com/)
 [New Member? Sign Up](https://www.greatwaysinc.com/user-registration)
-LOGIN
-Toggle navigation [![Greatways Tax Service Inc.](https://www.greatwaysinc.com/images/logo.png)](https://www.greatwaysinc.com/home) [![Greatways Tax Service Inc.](https://www.greatwaysinc.com/images/logo.png)](https://www.greatwaysinc.com/home)
-[![Greatways Tax Service Inc.](https://www.greatwaysinc.com/images/logo.png)](https://www.greatwaysinc.com/home)
+Toggle navigation [](https://www.greatwaysinc.com/home) [](https://www.greatwaysinc.com/home)
+[](https://www.greatwaysinc.com/home)
   * [Home ](https://www.greatwaysinc.com/home)
   * [Profile](https://www.greatwaysinc.com/profile)
   * [Services](https://www.greatwaysinc.com/services)
@@ -14,15 +13,12 @@ Toggle navigation [![Greatways Tax Service Inc.](https://www.greatwaysinc.com/im
   * [Contact Us](https://www.greatwaysinc.com/contact-us)
 
 
-![Greatways Tax Service Inc](https://www.greatwaysinc.com/images/HomeSlider/greatways-tax-services.jpg)
 ## New Business Set up in 24 Hrs 
 ### Payroll & Sale Tax Service
 ### Registered Agent Service for Business
-![Greatways Tax Service Inc.](https://www.greatwaysinc.com/images/HomeSlider/great-ways-services.jpg)
 ## Enrolled Agent ( Authorized Tax Practitioner )
 ### IRS Certifying Acceptance Agent (ITIN Experts)
 ### Notary Public & Authorized E File Provider
-![Greatways Tax Service Inc](https://www.greatwaysinc.com/images/HomeSlider/great-ways.jpg)
 ## Real Estate & Mortgage Service in Illinois
 ### Lowest Mortgage Rate for purchase or Refinance
 ### Buyer’s Agent / Listing Agent Service
@@ -35,7 +31,6 @@ Please give a reasonable time to respond your request
 ##  _Greatways Tax Service Inc._   
 Great Service @ Right Ways, Since 2002.   
 (ISO 9001-2015 Certified) 
-![](https://www.greatwaysinc.com/images/greatways.png)
 ## About Us
 Greatways Tax Service Inc was established in 2002 as a full service accounting firm to serve the tax, accounting and consulting needs of individuals & small businesses to all of the 50 states in the United States. We strive to strike the perfect balance between small, local, attentive service & professional experience and expertise. We believe that listening is the foundation of a lasting client relationship built on trust & respect. Our goal is to provide financial leadership, guidance and advice that you can really use to help you grow your business and become more successful. 
 [Read More](https://www.greatwaysinc.com/profile)
@@ -54,15 +49,15 @@ Click here to view US-India Tax Treaty Article 21 ...
 
 [Read More](https://www.greatwaysinc.com/news)
 ## Client Services
-[![Greatways Tax Service Inc](https://www.greatwaysinc.com/images/Services/tax.jpg)](https://www.greatwaysinc.com/services-details_taxation_1)
+[](https://www.greatwaysinc.com/services-details_taxation_1)
 ### Taxation Services @ Right Price from $ 100.00
 ... ............................................. Great Tax Service @ Right Ways, Since 2002. While you focus on 
 [Read More](https://www.greatwaysinc.com/services-details_taxation_1)
-[![Greatways Tax Service Inc](https://www.greatwaysinc.com/images/Services/real-estate.jpg)](http://greatwaysrealty.com/)
+[](http://greatwaysrealty.com/)
 ### Real Estate Service
 ... ............................................. Real estate transactions involve one of the biggest financial investments most people experience in buyers/Sellers lifetime. It can also be a very time-consuming and costly one if you're not
 [Read More](http://greatwaysrealty.com/)
-[![Greatways Tax Service Inc](https://www.greatwaysinc.com/images/Services/payroll.jpg)](https://www.greatwaysinc.com/services-details_small_2)
+[](https://www.greatwaysinc.com/services-details_small_2)
 ### Small Business Payroll and Coporate Tax Service Starts from $125 per Month
 ... ............................................. Small Business Accounting Service @ Right Ways As your accountant, we advise and supports your business in Great 
 [Read More](https://www.greatwaysinc.com/services-details_small_2)
