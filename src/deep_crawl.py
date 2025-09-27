@@ -8,7 +8,6 @@ from crawl4ai.deep_crawling.filters import (
 )
 
 async def main():
-    # Configure a 2-level deep crawl
     config = CrawlerRunConfig(
         deep_crawl_strategy=BFSDeepCrawlStrategy(
             max_depth=5, 
