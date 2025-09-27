@@ -8,13 +8,30 @@ from crawl4ai.deep_crawling.filters import (
 )
 
 async def main():
+    
+    prune_filter = PruningContentFilter(
+        threshold=0.5,
+        threshold_type="dynamic",
+        min_word_threshold=50
+    )
+
+    md_generator = DefaultMarkdownGenerator(
+        content_filter=prune_filter,
+        options={
+            "ignore_links": True,
+            "ignore_images": True,
+            "escape_html": False,
+        }
+    )
+
     config = CrawlerRunConfig(
         deep_crawl_strategy=BFSDeepCrawlStrategy(
             max_depth=5, 
             include_external=False,
-            max_pages=30,
+            max_pages=50,
             filter_chain=FilterChain([ContentTypeFilter(allowed_types=["text/html"])])
         ),
+        markdown_generator=md_generator,
         scraping_strategy=LXMLWebScrapingStrategy(),
         # verbose=True,
         stream=True,
