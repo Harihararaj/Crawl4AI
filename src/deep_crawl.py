@@ -33,6 +33,7 @@ async def main():
         ),
         markdown_generator=md_generator,
         scraping_strategy=LXMLWebScrapingStrategy(),
+        exclude_all_images=True,
         # verbose=True,
         stream=True,
     )
