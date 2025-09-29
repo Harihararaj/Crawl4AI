@@ -34,6 +34,6 @@ pip3 install -r requirements.txt
 ```
 python3 src/crawl.py
 ```
-7. Find the result in the `references/documentaton.md`
+7. Find the result in the `references/result.md`
 
 
