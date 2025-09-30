@@ -19,7 +19,7 @@ Large Language Models (LLMs) are reshaping how enterprises work, making it possi
 
 When leveraging third-party hosted LLM APIs, organizations must proceed with caution. The first step is to carefully review the provider’s privacy notice to understand how submitted data will be stored, processed, and potentially shared. From a development perspective, engineers must integrate privacy safeguards early in the design phase. At the enterprise level, it is essential to avoid transmitting customer or client sensitive information directly to external APIs. Instead, enterprises should implement Personally Identifiable Information (PII) masking before data is sent.
 ## LLM Masking (Protecting sensitive information in AI Application):
-LLM Masking is a privacy-preserving technique that detects and replaces sensitive information with placeholder tokens prior to processing text with Large Language Models. Once processing is complete, the original data can be securely reinserted if required. This approach reduces exposure risks while enabling enterprises to safely benefit from LLM capabilities.
+LLM Masking is a privacy-preserving technique that detects and replaces sensitive information with placeholder tokens prior to processing text with external Large Language Models. Once processing is complete, the original data can be securely reinserted if required. This approach reduces exposure risks while enabling enterprises to safely benefit from LLM capabilities.
 
 ## What we acheive with LLM Masking:
 - **🔒 Stronger Data Privacy** – Prevents personally identifiable information (PII) from ever reaching third-party LLM services.
