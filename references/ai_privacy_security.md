@@ -42,7 +42,7 @@ Here is how NER can be used in LLM Masking:
 ### Why SpaCy?
 `en_core_web_sm` is a small English model from spaCy that you can download and run directly on your local machine. The model is lightweight (around 12 MB) but still capable of handling essential NLP tasks like Named Entity Recognition (NER).
 
-Because it runs entirely offline, your text never leaves your environment — ensuring high privacy and control over sensitive data. This makes spaCy an excellent choice for privacy-first AI workflows, such as masking personally identifiable information (PII) before sending text to an LLM.
+Because it runs entirely offline, your text never leaves your environment, ensuring high privacy and control over sensitive data. This makes spaCy an excellent choice for privacy-first AI workflows, such as masking personally identifiable information (PII) before sending text to an LLM.
 
 ### Install:
 ```python
@@ -97,12 +97,15 @@ Final output: Hello, I’m Alice Johnson from Acme Corp. Email me at alice.j@exa
 ### Why distilbert_finetuned_ai4privacy_v2?
 `Isotonic/distilbert_finetuned_ai4privacy_v2` is a DistilBERT-based model fine-tuned for privacy and sensitive data detection. It can identify personally identifiable information (PII) such as names, emails, phone numbers, and other private entities in text.
 
-Once downloaded through Hugging Face, the model runs locally in your environment. With a size of around 250 MB, it provides a balance between performance and accuracy, making it practical for real-world enterprise workflows. Because all processing happens on your own system after the initial download, no data needs to leave your environment — ensuring strong privacy and compliance for applications like LLM masking and secure data preprocessing.
+Once downloaded through Hugging Face, the model runs locally in your environment. With a size of around 250 MB, it provides a balance between performance and accuracy, making it practical for real-world enterprise workflows. Because all processing happens on your own system after the initial download, no data needs to leave your environment, ensuring strong privacy and compliance for applications like LLM masking and secure data preprocessing.
 
 ### Install:
 ```python
 pip install transformers torch
 ```
+
+> [!WARNING]
+> Below implementation uses CPU. To use GPU, change pipeline creation to `ner = pipeline("token-classification", model=mdl,tokenizer=tok, aggregation_strategy="simple", device=0 )`
 
 ### Code Implementation:
 ```python
