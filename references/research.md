@@ -72,3 +72,9 @@ Either evaluation pipeline can be created groundup, or use already existing eval
 ## [Knowledge Graph from Unstructured text](https://levelup.gitconnected.com/converting-unstructured-data-into-a-knowledge-graph-using-an-end-to-end-pipeline-552a508045f9)
 
 ![Knowledge Graph Pipeline](https://miro.medium.com/v2/resize:fit:2000/format:webp/0*0qc1cmscKaU9JiHp.png)
+
+### What is a Knowledge Graph?
+Where Graphs are used to represent the semantic meaning of the text, nodes represent the Entities and the edge represents the relationships between those entities.
+
+> "India" - won -> "World Cup"
+> Where "India" and "World Cup" are the Entities and the "won" is the relationship between those Entities
