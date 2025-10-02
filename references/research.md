@@ -56,4 +56,16 @@ What if our RAG system could check its own work before giving an answer? That’
 > [!IMPORTANT]
 > Now Context windows for LLM have grown like 128k, 200k, even millions, Though passing the whole document is not feasible because relevant context may be diluted and lost in the big document, its hard for LLM to find that and answer the question. Long context are helpful when we really have more information to provide to LLM. So use the context window wise see if its actually needed.
 
-## Manual RAG Evaluation
+## RAG Evaluation:
+### Metrics:
+- **Correctness** - Check whether our RAG pipeline correctly generates the expected answer (input: rag_output, expected_output)
+- **Faithfulness** - metrics for whether output can be deduced from the context retrieved by RAG - This is the measure of relevance of the retrieved context (input: rag_output, expected_output, retrieved_context)
+
+## Manual Evaluation:
+In manual evaluation, LLM can be used as a judge to score between 0 to 1 for the correctness and faithfulness. This behaviour is acheived with properly prompting LLM to act as a judge, prompt should be different for correctness and the faithfulness.
+
+Either evaluation pipeline can be created groundup, or use already existing evaluation tools like:
+- **deepeval**
+- **grouse**
+- **RAGAS** (Specifically for RAG - Prefered)
+
