@@ -67,5 +67,5 @@ In manual evaluation, LLM can be used as a judge to score between 0 to 1 for the
 Either evaluation pipeline can be created groundup, or use already existing evaluation tools like:
 - **deepeval**
 - **grouse**
-- **RAGAS** (Specifically for RAG - Prefered)
+- **RAGAS** (Specifically for RAG - Preferred)
 
