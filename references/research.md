@@ -1,4 +1,4 @@
-[Chunking](https://ai.gopubby.com/chunking-for-llms-windows-retrieval-and-cost-4e849378f834)
+# [Chunking](https://ai.gopubby.com/chunking-for-llms-windows-retrieval-and-cost-4e849378f834)
 1. Use token aware chunking instead of character level.
 2. Prefer using Recursive Text Splitters, which can preserve the sentences and paragraphs to some extend
 3. Keep budgetting in mind when chunking
@@ -8,7 +8,7 @@
 - Based on the chunk size, decide how many chunks are going to be included in the context.
 ![ChunkingTypes](https://miro.medium.com/v2/resize:fit:2000/format:webp/1*DK7ioZtQsUpArrZoXeDAzQ.png)
 
-[RAG](https://levelup.gitconnected.com/building-the-entire-rag-ecosystem-and-optimizing-every-component-8f23349b96a4)
+# [RAG](https://levelup.gitconnected.com/building-the-entire-rag-ecosystem-and-optimizing-every-component-8f23349b96a4)
 ## Advanced Query Transformations:
 ### Multi Query (User Query Augumentation)  - RAG Fusion (Powerful)
 - Single query can miss chunks because of synonyms miss match.
@@ -69,3 +69,6 @@ Either evaluation pipeline can be created groundup, or use already existing eval
 - **grouse**
 - **RAGAS** (Specifically for RAG - Preferred)
 
+# [Knowledge Graph from Unstructured text](https://levelup.gitconnected.com/converting-unstructured-data-into-a-knowledge-graph-using-an-end-to-end-pipeline-552a508045f9)
+
+![Knowledge Graph Pipeline](https://miro.medium.com/v2/resize:fit:2000/format:webp/0*0qc1cmscKaU9JiHp.png)
