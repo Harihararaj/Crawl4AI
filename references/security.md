@@ -187,16 +187,11 @@ Launch instances in a private subnet within your VPC or VNet, configure security
 nvidia-smi
 ```
 
-If this command fails or doesn’t show your GPU, install the required NVIDIA driver and CUDA toolkit from [installation guide](https://developer.nvidia.com/cuda-downloads)
+If this command fails or doesn’t show your GPU, install the required NVIDIA driver and CUDA toolkit from [Installation guide](https://developer.nvidia.com/cuda-downloads)
 
 > [!NOTE]
 > You only need the driver, not the full CUDA toolkit.
 > Blackwell GPUs (B200/GB200, etc.) need CUDA ≥ 12.8 (use matching PyTorch wheels).
-
-Install below dependencies if missing:
-```
-sudo apt update && sudo apt install -y python3 python3-venv python3-pip git git-lfs
-```
 
 #### System setup:
 ```
@@ -299,7 +294,7 @@ vllm serve ~/models/deepseek-33b-chat \
   --port 8000
 ```
 > [!TIP]
-> Keep the endpoint private — accessible only within your internal network or localhost.
+> Keep the endpoint private, accessible only within your internal network or localhost.
 
 ### Why Use Air-Gapped Inference
 - Prevents any data from leaving the environment
