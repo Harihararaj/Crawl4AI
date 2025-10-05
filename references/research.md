@@ -74,7 +74,32 @@ Either evaluation pipeline can be created groundup, or use already existing eval
 ![Knowledge Graph Pipeline](https://miro.medium.com/v2/resize:fit:2000/format:webp/0*0qc1cmscKaU9JiHp.png)
 
 ### What is a Knowledge Graph?
-Where Graphs are used to represent the semantic meaning of the text, nodes represent the Entities and the edge represents the relationships between those entities.
+Where Graphs are used to represent the semantic meaning of the text, nodes represent the Entities (these are things, like names, place, objects - In our context its subject and predicate) and the edge (How two entities are related) represents the relationships between those entities.
 
-> "India" - won -> "World Cup"
+> "India" - won -> "World Cup",
 > Where "India" and "World Cup" are the Entities and the "won" is the relationship between those Entities
+
+### Subject -Predicate-> Object Triples:
+How plain text can be converted into Knowledge Graph, like what would be the node and what would the edge.
+
+- **Subject** - Who or what the fact is about becomes a node
+- **Predicate** - The action or relationship linking the subject and object, becomes the edge label
+- **Object** - the thing that subject is related to or talks about becomes another node
+
+> LLM can be leveraged to identify the SPO (Subject Predicate Object triplets)
+
+These SPO are connected to each other to form a Knowledge Graph as a whole
+
+## [BERTopic](https://medium.com/data-science-collective/bertopic-with-local-llm-labeling-llama-cpp-ollama-a-practical-guide-45314e80d723)
+BERTopics is a framework used to extract the topic of the documents. 
+### Architecture:
+Documents -> Embedding (Each of the documents get a vector) -> Dimensionality Reduction -> Clustering (Each cluster is a Topic) -> Topic Extraction for each cluster -> Normalizing Extracted Topc
+
+### Tools used:
+- Embedding (SentenceTransformer)
+- Dimensionality Reduction (UMAP, PCA)
+- Clustering (HDBSCAN, K-means or UnSupuervised algotiths)
+- Vectorizer to extract words that can be used in Topics (CountVectorizer or KeyBERT)
+- Finalizing Topic out of extracted keywords (c-TF-IDF or LLMs)
+
+We define and intialize this tools, and provide to the BERTopic framework. By this way we can leverage BERTopic to extract topics or to find cluster of documents.
