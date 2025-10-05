@@ -92,6 +92,9 @@ These SPO are connected to each other to form a Knowledge Graph as a whole
 
 ## [BERTopic](https://medium.com/data-science-collective/bertopic-with-local-llm-labeling-llama-cpp-ollama-a-practical-guide-45314e80d723)
 BERTopics is a framework used to extract the topic of the documents. 
+
+![BERTopic Architecture](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*aQxn1NwOvXOS1vRQwIz94A.png)
+
 ### Architecture:
 Documents -> Embedding (Each of the documents get a vector) -> Dimensionality Reduction -> Clustering (Each cluster is a Topic) -> Topic Extraction for each cluster -> Normalizing Extracted Topc
 
