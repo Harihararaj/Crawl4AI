@@ -160,3 +160,149 @@ LLM (masked): Hello, I'm <<<PII:FIRSTNAME:1>>> <<<PII:LASTNAME:1>>> from <<<PII:
 Final: Hello, I'm Alice Johnson from Acme Corp. Email me at alice.j@example.com or call +1 312-555-0199.
 ```
 
+## Running a Secured LLM Inference Pipeline:
+To further enhance security beyond techniques like LLM masking, the entire LLM inference pipeline can be deployed within a private cloud environment, such as an AWS EC2 instance inside a Virtual Private Cloud (VPC) or an Azure Virtual Machine inside a Virtual Network (VNet).
+
+By hosting the model within these private environments and restricting access to private IP addresses only, all inference traffic remains isolated from the public internet. This setup ensures that no sensitive data leaves the secure infrastructure, providing end-to-end control over data flow, access policies, and model execution.
+
+In essence, running inference within a VPC or VNet transforms your deployment into a fully contained, zero-trust environment, ideal for organizations handling confidential or regulated data.
+
+
+### Choose a GPU-Accelerated Instance:
+
+Select a GPU instance based on your model’s **VRAM** and **architecture** requirements.
+
+| Model | Recommended GPU | Minimum VRAM | Cloud Option |
+|--------|------------------|---------------|---------------|
+| `DeepSeek-7B` | NVIDIA L4 / A10G | 24 GB | AWS G5, Azure NC |
+| `DeepSeek-33B` | NVIDIA A100 / H100 | 80–96 GB | AWS P4d, Azure NDv5 |
+| `DeepSeek-253B` | NVIDIA H200 / Blackwell B200 | ≥192 GB | AWS P5, Azure ND B-Series (2025) |
+
+Launch instances in a private subnet within your VPC or VNet, configure security groups/NSGs to allow only authorized SSH or HTTPS access, and attach IAM roles or Managed Identities for secure access to S3 or Azure Blob storage.
+
+### Deployment Steps:
+
+#### Check GPU/CUDA
+```
+nvidia-smi
+```
+
+If this command fails or doesn’t show your GPU, install the required NVIDIA driver and CUDA toolkit from [installation guide](https://developer.nvidia.com/cuda-downloads)
+
+> [!NOTE]
+> You only need the driver, not the full CUDA toolkit.
+> Blackwell GPUs (B200/GB200, etc.) need CUDA ≥ 12.8 (use matching PyTorch wheels).
+
+Install below dependencies if missing:
+```
+sudo apt update && sudo apt install -y python3 python3-venv python3-pip git git-lfs
+```
+
+#### System setup:
+```
+sudo apt update
+sudo apt install -y python3 python3-venv python3-pip git git-lfs
+```
+
+Create the python virtual environment:
+```
+python3 -m venv ~/vllm-venv
+source ~/vllm-venv/bin/activate
+pip install --upgrade pip
+```
+
+#### Install PyTorch + vLLM (GPU):
+```
+pip install torch --index-url https://download.pytorch.org/whl/cu12x
+pip install vllm transformers huggingface_hub sentencepiece safetensors
+```
+> [!NOTE]
+> “cu12x” resolves to the latest supported CUDA 12.x build
+
+#### Download Model to local directory:
+```
+mkdir -p ~/models/deepseek-33b-chat
+huggingface-cli download deepseek-ai/DeepSeek-LLM-33B-Chat \
+  --local-dir ~/models/deepseek-33b-chat \
+  --local-dir-use-symlinks False
+```
+> [!NOTE]
+> Change the download path to preference
+
+#### Deploy:
+```
+vllm serve ~/models/deepseek-33b-chat \
+  --dtype auto \
+  --max-model-len 8192 \
+  --gpu-memory-utilization 0.95 \
+  --port 8000
+```
+> [!NOTE]
+> Configure the context window using --max-model-len based on your available VRAM. 
+> It should allocate enough memory to fit both the model weights and the KV cache required for inference.
+> Feel free to configure the port
+
+## Running a Fully Air-Gapped LLM Inference Pipeline
+
+If your organization needs maximum isolation, the same steps can be followed inside an air-gapped setup instead of a VPC.
+
+### What Is an Air-Gapped Setup?
+
+An air-gapped environment is a system that is completely disconnected from the internet and any external network. All software, models, and updates are transferred manually or through a secure, audited channel (like encrypted drives). No outbound or inbound connections are allowed, ensuring that no data ever leaves your secure environment.
+
+### Adjustments for Air-Gapped Deployment
+
+Most steps above remain the same, only the installation and download process changes:
+
+#### Install Packages Offline:
+
+On a connected machine:
+```
+pip download torch vllm transformers huggingface_hub sentencepiece safetensors -d ./wheels
+tar -czvf wheels.tar.gz wheels/
+```
+Copy `wheels.tar.gz` to the air-gapped machine (via secure media), then:
+```
+tar -xzvf wheels.tar.gz
+pip install --no-index --find-links ./wheels torch vllm transformers huggingface_hub sentencepiece safetensors
+```
+
+#### Download Model Offline:
+On a connected system:
+```
+huggingface-cli download deepseek-ai/DeepSeek-LLM-33B-Chat \
+  --local-dir ./DeepSeek-33B-Chat \
+  --local-dir-use-symlinks False
+```
+Transfer the folder to the air-gapped server:
+```
+mkdir -p ~/models/deepseek-33b-chat
+rsync -avz ./DeepSeek-33B-Chat ~/models/
+```
+
+#### Disable Internet Access:
+On the air-gapped machine:
+```
+sudo ip route del default
+sudo ufw default deny outgoing
+sudo ufw enable
+```
+This ensures no external network communication.
+
+#### Run Inference (Same Command):
+```
+vllm serve ~/models/deepseek-33b-chat \
+  --dtype auto \
+  --max-model-len 8192 \
+  --gpu-memory-utilization 0.95 \
+  --host 127.0.0.1 \
+  --port 8000
+```
+> [!TIP]
+> Keep the endpoint private — accessible only within your internal network or localhost.
+
+### Why Use Air-Gapped Inference
+- Prevents any data from leaving the environment
+- No dependency on external APIs or internet access
+- All operations are under full enterprise control
+- Suitable for classified, financial, or healthcare data environments
